@@ -3,6 +3,19 @@
     --primary-text-color: #434455;
     --secondly-text-color: #2E2F42;
     --accent-color: #404BBF;
+    --color-footer-social: rgba(255, 255, 255, 0.1);
+    
+        --ColorIris: #4d5ae5;
+        --ColorOcean: #404bbf;
+       
+        --ColorGreen: #31d0aa;
+        
+        --ColorLightSlate: #8e8f99;
+        --ColorCornflower: #e7e9fc;
+        --ColorCloud: #f4f4fd;
+        
+        --ColorWhite: #ffffff;
+        --ColorDairy: #fcfcfc;
 }
 
 body {
@@ -17,6 +30,7 @@ body {
 }
     
 .link {
+    color: inherit;
     text-decoration: none;
 }
 h1,h2,h3,h4,h5,h6,ul,p {
@@ -42,12 +56,25 @@ button {
     /* outline: 2px solid rgb(240, 97, 8); */
 }
 /* =================== Components===================*/
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
 
 /* =================== /Components===================*/
 /* Шапка сторінки */
 /*=================== page-header===================*/
 .page-header {
     border-bottom: 1px solid #E7E9FC ;
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .page-nav {
     display: flex;
@@ -97,6 +124,23 @@ button {
     color:var(--accent-color);
 }
 
+/* .menu-nav .item {
+    position: relative;
+}
+.menu-nav .link:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    bottom: 0;
+    background: #404BBF;
+    border-radius: 2px;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+} */
+
 .contact-nav  {
     font-style: normal;
     margin-left: auto;
@@ -118,15 +162,30 @@ button {
     align-items: center;
 }
 
+
 /*=================== /page-header ===================*/
 
 /*=================== Унікальний контент ===================*/
 /*=================== hero image ===================*/
+
 .hero {
     background: #2E2F42;
     text-align: center;
     padding-top: 188px;
     padding-bottom: 188px;
+
+    max-width: 1440px;
+    min-height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)), url(../images/hero/people_office.jpg);
+   
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
 }
 
 .main-title {
@@ -182,7 +241,7 @@ button {
     color: var(--secondly-text-color);
     font-weight: 700;
     font-size: 36px;
-    line-height: 1.11;
+    line-height: 1.1;
     letter-spacing: 0.02em;
     
     text-align: center;
@@ -209,12 +268,24 @@ button {
 /* .services-section {
     padding-bottom: 0;
 } */
-.services-list {
+.advantages-list {
     display: flex;
     gap: 24px;    
 }
-.services-list >.item {
+.advantages-list >.item {
     flex-basis: calc( (100% - 3*24px)/4);
+}
+
+.item-blok {
+    display: flex;
+    /* width: 264px; */
+    height: 112px;
+    /* /* padding: 24px 100px; */
+    margin-bottom: 8px;
+    justify-content: center;
+    align-items: center;
+    background: #F4F4FD;
+    border-radius: 4px;
 }
 /* ------------------/секція 1----------------- */
 /* ------------------секція 2----------------- */
@@ -227,7 +298,7 @@ button {
 }
 .work-list .item {
     flex-basis: calc((100% - 24px*2)/3);
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* ------------------/секція 2----------------- */
@@ -238,21 +309,89 @@ button {
 .personnel-list {
     display: flex;
     gap: 24px;
+    justify-content: center;
 }
 
 .personnel-list .item {
     background: #FFFFFF;
     flex-basis: calc((100% - 24px*3)/4);
-    /* box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08); */
-    
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+    border-radius: 0px 0px 4px 4px;
+}
+
+.profession {
+    margin-bottom: 8px;
 }
 
 .card-content {
-    padding: 32px 16px ;
+    padding: 32px 16px 32px;
     text-align: center;
-    border-radius: 0px 0px 4px 4px;
+   
 }
+
+.social-list {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    
+}
+
+.social-link {
+    background-color: #4D5AE5;
+    color: #F4F4FD;
+
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    
+}
+
+.social-link .icon {
+    fill: currentColor;
+}
+
+.social-link:hover,
+.social-link:focus  {
+    background-color: #404BBF;
+}
+
+
 /* ------------------/секція 3----------------- */
+/* ------------------секція 4----------------- */
+.customers-list {
+    display: flex;
+    gap: 24px;
+    flex-basis: calc((100% - 24px*5)/6);
+}
+
+.customers-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    width: 168px;
+    height: 88px;
+    color: #8E8F99;
+    border: 1px solid #8E8F99;
+    border-radius: 4px;
+}
+
+.customers-link .icon {
+    fill: currentColor;
+}
+
+.customers-link:hover,
+.customers-link:focus {
+    border: 1px solid #404BBF;
+    color: #404BBF;;
+}
+
+
+/* ------------------/секція 4----------------- */
 
 
 /* =================== /section ===================== */
@@ -289,6 +428,48 @@ button {
     font-size: 16px;
     line-height: 1.5;
 }
+.footer-content {
+    display: flex;
+    gap: 120px;
+    align-items: baseline;
+}
+
+.footer-media {
+    margin-bottom: 16px;
+    
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+
+      
+    color: #FFFFFF;
+}
+
+.footer-social-list {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-social-link {
+    background-color: var(--color-footer-social);
+    border-radius: 50%;
+    color: #F4F4FD;;
+    
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;    
+}
+
+.footer-social-link .icon {
+    fill: currentColor;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus {
+    background-color: #31d0aa;
+}
 /* =================== /footer ======================= */
 
 /* ==================Portfolio============== */
@@ -316,9 +497,9 @@ button {
     line-height: 1.5;
     cursor: pointer;
    
-    /* display: flex;
+    display: flex;
     align-items: center;
-    text-align: center; */
+    text-align: center;
     letter-spacing: 0.04em;
 
     background: #F4F4FD;
@@ -353,10 +534,20 @@ button {
     line-height: 1.2;  
     letter-spacing: 0.02em;
 }
+.filters-link {
+    display: block;
+    
+}
 .card-filters {
     padding: 32px 16px;
     border: 1px solid #E7E9FC;
     border-top: none;
+}
+
+.filters-link:hover,
+.filters-link:focus {
+    border: 1px solid #F4F4FD;
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 /* =================== /section ===================== */
 
